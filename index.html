@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elvin the Archer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Nunito:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-shell">
+    <!-- HUD Section -->
+    <div class="hud">
+      <h1>Elvin the Archer</h1>
+      <div class="stats">
+        <span>Player HP: <span id="playerHpText">100</span></span>
+        <span>Blob HP: <span id="blobHpText">220</span></span>
+        <span>Rupees: <span id="rupeeCount">0</span></span>
+      </div>
+    </div>
+
+    <!-- Arena Section -->
+    <div class="arena">
+      <canvas id="game" width="1100" height="600"></canvas>
+
+      <!-- Main Overlay (Messages, Game Over, etc.) -->
+      <div id="overlay" class="overlay hidden">
+        <h2 id="message">Game Over!</h2>
+        <button id="restartBtn">Restart</button>
+      </div>
+
+      <!-- Arrow Choice Overlay -->
+      <div id="arrowChoice" class="overlay hidden">
+        <h2>Choose Your Arrow</h2>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <button id="fireChoiceBtn">Fire Arrow</button>
+          <button id="iceChoiceBtn">Ice Arrow</button>
+          <button id="electricChoiceBtn">Electric Arrow</button>
+        </div>
+      </div>
+
+      <!-- Final Arrow Choice Overlay -->
+      <div id="finalArrowChoice" class="overlay hidden">
+        <h2>Final Battle - Choose Your Arrow</h2>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <button id="finalFireBtn">Fire Arrow</button>
+          <button id="finalIceBtn">Ice Arrow</button>
+          <button id="finalElectricBtn">Electric Arrow</button>
+        </div>
+      </div>
+
+      <!-- Shop Panel -->
+      <div id="shopPanel" class="overlay hidden">
+        <h2>Welcome to the Shop!</h2>
+        <p>Rupees: <span id="shopRupeeDisplay">0</span></p>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 12px;">
+          <button id="shopHealBtn">Heal (50 rupees)</button>
+          <button id="shopArrowBtn">Normal Arrows (20)</button>
+          <button id="shopShieldBtn">Shield (60)</button>
+          <button id="shopIceArrowBtn">Ice Arrows (30)</button>
+          <button id="shopFireArrowBtn">Fire Arrows (30)</button>
+          <button id="shopElectricArrowBtn">Electric Arrows (40)</button>
+          <button id="shopDoubleBowBtn">Double Bow (100)</button>
+          <button id="shopCheckpointBtn">Save Progress (25)</button>
+          <button id="shopLeaveBtn">Leave Shop</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HUD Section (Bottom) -->
+    <div class="hud">
+      <!-- HP Bars -->
+      <div style="flex: 1;">
+        <p style="margin-bottom: 4px;">Player</p>
+        <div id="playerBar" style="width: 100%; height: 16px; background: rgba(3, 63, 99, 0.2); border-radius: 8px; overflow: hidden;">
+          <div style="width: 100%; height: 100%; background: linear-gradient(90deg, #28666e, #7ae582); border-radius: 8px;"></div>
+        </div>
+      </div>
+
+      <!-- Arrow/Item Quiver -->
+      <div id="quiverRow" style="display: flex; gap: 12px; align-items: center;">
+        <span>Fire: <span id="fireArrowCount">0</span></span>
+        <span>Ice: <span id="iceArrowCount">0</span></span>
+        <span>Electric: <span id="electricArrowCount">0</span></span>
+      </div>
+
+      <!-- Blob HP Bar -->
+      <div style="flex: 1;">
+        <p style="margin-bottom: 4px;">Enemy</p>
+        <div id="blobBar" style="width: 100%; height: 16px; background: rgba(3, 63, 99, 0.2); border-radius: 8px; overflow: hidden;">
+          <div style="width: 100%; height: 100%; background: linear-gradient(90deg, #ff6b6b, #ffb366); border-radius: 8px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls Section -->
+    <div class="controls">
+      <p><strong>Controls:</strong> Arrow Keys or WASD to move | Space to jump | Click to shoot | S to open shop</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
