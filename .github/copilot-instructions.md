@@ -1,4 +1,4 @@
-# Elvin Game Repository — Copilot Instructions
+# Elven Game Repository — Copilot Instructions
 
 ## Security — Pre-commit & Pre-push Checklist
 
